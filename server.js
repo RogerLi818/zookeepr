@@ -11,6 +11,8 @@ app.use(express.urlencoded({extended:true}));
 //parse incoming JSON data
 app.use(express.json());
 
+app.use(express.static('public'));
+
 function filterByQuery(query,animalsArray){
     let personalityTraitArray=[];
     //note that we save the animalArray as filteredResult here
@@ -112,6 +114,8 @@ app.get('/api/animals/:id', (req, res)=>{
     }
 });
 
+
+//where is proper middleware?
 app.post('/api/animals',(req,res)=>{
     //req.body is where our incoming content will be
     //set id based on what the next index of the array will be
@@ -127,6 +131,22 @@ app.post('/api/animals',(req,res)=>{
 
     res.json(animal);
     }
+});
+
+app.get('/',(req,res)=>{
+    res.sendFile(path.join(__dirname, './public/index.html'));
+});
+
+app.get('/animals',(req,res)=>{
+    res.sendFile(path.join(__dirname, './public/animals.html'));
+});
+
+app.get('/zookeepers', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/zookeepers.html'));
+  });
+//need to be on this order. otherwise it will take precedence over named routes.
+app.get('*',(req,res)=>{
+    res.sendFile(path.join(__dirname,'./public/index.html'));
 });
 
 app.listen(PORT, ()=>{

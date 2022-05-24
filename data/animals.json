@@ -108,6 +108,26 @@
         "hungry"
       ],
       "id": "10"
+    },
+    {
+      "name": "dog",
+      "species": "car",
+      "diet": "folivore",
+      "personalityTraits": [
+        "hungry"
+      ],
+      "id": "11"
+    },
+    {
+      "name": "cat",
+      "species": "catty",
+      "diet": "carnivore",
+      "personalityTraits": [
+        "hungry",
+        "anxious",
+        "loving"
+      ],
+      "id": "12"
     }
   ]
 }
