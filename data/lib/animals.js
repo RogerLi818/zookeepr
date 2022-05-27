@@ -59,7 +59,7 @@ function createNewAnimal(body, animalsArray){
     animalsArray.push(animal);
 
     fs.writeFileSync(
-        path.join(__dirname, '../data/animals.json'),
+        path.join(__dirname, '../animals.json'),
         //?why animals:animalsArray? what's that meaning?
         JSON.stringify({animals:animalsArray}, null, 2)
     );
