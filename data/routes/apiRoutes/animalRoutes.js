@@ -4,7 +4,7 @@ const{animals}=require('../../animals.json');
 
 
 router.get('/animals',(req,res)=>{
-    //is this animals the varity of {animals} at beginning? 
+    //is this animals the varity of {animals} at beginning? yes
     let results=animals;
     if (req.query){
         results=filterByQuery(req.query, results);
@@ -13,7 +13,7 @@ router.get('/animals',(req,res)=>{
 });
 
 router.get('/animals/:id', (req, res)=>{
-    //is this animals the varity of {animals} at beginning? 
+    //is this animals the varity of {animals} at beginning? yes
     const result = findById(req.params.id, animals);
     if (result){
         res.json(result);
@@ -34,7 +34,7 @@ router.post('/animals',(req,res)=>{
     if(!validateAnimal(req.body)){
         res.status(400).send('The animal is not properly formatted')
     }else{
-    //?is req.body represent all info in the array/object? (name, species diet ...)?
+    //?is req.body represent all info in the array/object? (name, species diet ...)? body is for API POST with. 
     const animal = createNewAnimal(req.body, animals);
 
     res.json(animal);

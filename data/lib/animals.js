@@ -27,7 +27,7 @@ function filterByQuery(query,animalsArray){
             //so at the end we'll have an array of animals that have every one 
             //of the traits when the .forEach() loop is finished.
             filteredResults=filteredResults.filter(
-                //what's this?
+                //what's this? end of array, stop filter.
                 animal=>animal.personalityTraits.indexOf(trait) !== -1
             );
         });
@@ -47,7 +47,7 @@ function filterByQuery(query,animalsArray){
 };
 
 function findById(id,animalsArray){
-    //?why use [0]?
+    //?why use [0]? [0] is the beginning of animalsArray.
     const result=animalsArray.filter(animal=>animal.id === id)[0];
     return result;
 };
@@ -60,7 +60,7 @@ function createNewAnimal(body, animalsArray){
 
     fs.writeFileSync(
         path.join(__dirname, '../animals.json'),
-        //?why animals:animalsArray? what's that meaning?
+        //?why animals:animalsArray? what's that meaning? the same format as animals.json.
         JSON.stringify({animals:animalsArray}, null, 2)
     );
 

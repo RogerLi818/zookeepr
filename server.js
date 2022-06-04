@@ -12,12 +12,11 @@ const app=express();
 app.use(express.urlencoded({extended:true}));
 //parse incoming JSON data
 app.use(express.json());
+app.use(express.static('public'))
 
 app.use('/api', apiRoutes);
 
 app.use('/', htmlRoutes); 
-
-app.use(express.static('public'));
 
 
 
